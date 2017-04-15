@@ -22,8 +22,8 @@
 <body <?php body_class(); ?>>
 <div id="page" class="site">
 
-    <div class="title-bar" data-responsive-toggle="masthead" data-hide-for="medium">
-        <button class="menu-icon" type="button" data-toggle="masthead"></button>
+    <div class="title-bar" data-responsive-toggle="navigation" data-hide-for="medium">
+        <button class="menu-icon" type="button" data-toggle="navigation"></button>
         <div class="title-bar-title">Menu</div>
     </div>
     <div id="navigation" class="top-bar site-header">
