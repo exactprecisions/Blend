@@ -22,26 +22,14 @@
 <body <?php body_class(); ?>>
 <div id="page" class="site">
 
-    <header id="masthead" class="top-bar site-header" role="">
-        <div class="top-bar-left site-branding">
-            <?php
-            if ( is_front_page() && is_home() ) : ?>
-                <h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
-            <?php else : ?>
-                <p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
-                <?php
-            endif;
-
-            $description = get_bloginfo( 'description', 'display' );
-            if ( $description || is_customize_preview() ) : ?>
-                <p class="site-description"><?php echo $description; /* WPCS: xss ok. */ ?></p>
-                <?php
-            endif; ?>
-        </div><!-- .site-branding -->
-
-        <nav id="site-navigation" class="top-bar-right main-navigation" role="navigation">
+    <div class="title-bar" data-responsive-toggle="masthead" data-hide-for="medium">
+        <button class="menu-icon" type="button" data-toggle="masthead"></button>
+        <div class="title-bar-title">Menu</div>
+    </div>
+    <div id="navigation" class="top-bar site-header">
+        <nav id="site-navigation" class="top-bar-left main-navigation" role="navigation">
             <?php wp_nav_menu( array( 'theme_location' => 'menu-1', 'menu_id' => 'primary-menu', 'menu_class' => 'menu' ) ); ?>
         </nav><!-- #site-navigation -->
-    </header><!-- #masthead -->
+    </div><!-- #masthead -->
 
     <div id="content" class="row site-content">
