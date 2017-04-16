@@ -1,10 +1,10 @@
 <?php
 /**
- * _s functions and definitions
+ * _blend functions and definitions
  *
  * @link https://developer.wordpress.org/themes/basics/theme-functions/
  *
- * @package _s
+ * @package _blend
  */
 
 /**

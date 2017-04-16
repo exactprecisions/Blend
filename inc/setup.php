@@ -5,7 +5,7 @@
  * Date: 4/15/2017
  * Time: 7:58 AM
  */
-if ( ! function_exists( '_s_setup' ) ) :
+if ( ! function_exists( '_blend_setup' ) ) :
     /**
      * Sets up theme defaults and registers support for various WordPress features.
      *
@@ -13,14 +13,14 @@ if ( ! function_exists( '_s_setup' ) ) :
      * runs before the init hook. The init hook is too late for some features, such
      * as indicating support for post thumbnails.
      */
-    function _s_setup() {
+    function _blend_setup() {
         /*
          * Make theme available for translation.
          * Translations can be filed in the /languages/ directory.
-         * If you're building a theme based on _s, use a find and replace
-         * to change '_s' to the name of your theme in all the template files.
+         * If you're building a theme based on _blend, use a find and replace
+         * to change '_blend' to the name of your theme in all the template files.
          */
-        load_theme_textdomain( '_s', get_template_directory() . '/languages' );
+        load_theme_textdomain( '_blend', get_template_directory() . '/languages' );
 
         // Add default posts and comments RSS feed links to head.
         add_theme_support( 'automatic-feed-links' );
@@ -42,7 +42,7 @@ if ( ! function_exists( '_s_setup' ) ) :
 
         // This theme uses wp_nav_menu() in one location.
         register_nav_menus( array(
-            'menu-1' => esc_html__( 'Primary', '_s' ),
+            'menu-1' => esc_html__( 'Primary', '_blend' ),
         ) );
 
         /*
@@ -58,7 +58,7 @@ if ( ! function_exists( '_s_setup' ) ) :
         ) );
 
         // Set up the WordPress core custom background feature.
-        add_theme_support( 'custom-background', apply_filters( '_s_custom_background_args', array(
+        add_theme_support( 'custom-background', apply_filters( '_blend_custom_background_args', array(
             'default-color' => 'ffffff',
             'default-image' => '',
         ) ) );
@@ -67,7 +67,7 @@ if ( ! function_exists( '_s_setup' ) ) :
         add_theme_support( 'customize-selective-refresh-widgets' );
     }
 endif;
-add_action( 'after_setup_theme', '_s_setup' );
+add_action( 'after_setup_theme', '_blend_setup' );
 
 /**
  * Set the content width in pixels, based on the theme's design and stylesheet.
@@ -76,7 +76,7 @@ add_action( 'after_setup_theme', '_s_setup' );
  *
  * @global int $content_width
  */
-function _s_content_width() {
-    $GLOBALS['content_width'] = apply_filters( '_s_content_width', 640 );
+function _blend_content_width() {
+    $GLOBALS['content_width'] = apply_filters( '_blend_content_width', 640 );
 }
-add_action( 'after_setup_theme', '_s_content_width', 0 );
+add_action( 'after_setup_theme', '_blend_content_width', 0 );
