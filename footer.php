@@ -17,7 +17,7 @@
 		<div class="text-center site-info">
 			<a href="<?php echo esc_url( __( 'https://wordpress.org/', '_blend' ) ); ?>"><?php printf( esc_html__( 'Proudly powered by %s', '_blend' ), 'WordPress' ); ?></a>
 			<span class="sep"> | </span>
-			<?php printf( esc_html__( 'Theme: %1$s by %2$s.', '_blend' ), '_blend', '<a href="https://automattic.com/" rel="designer">Automattic</a>' ); ?>
+			<?php printf( esc_html__( 'Theme: %1$s by %2$s.', '_blend' ), 'Blend', '<a href="https://robertparker.me" rel="designer">Robert Parker</a>' ); ?>
 		</div><!-- .site-info -->
 	</footer><!-- #colophon -->
 </div><!-- #page -->
