@@ -15,5 +15,4 @@
 
 	<input class="submit button" id="searchsubmit" name="submit" type="submit"
                    value="<?php esc_attr_e( 'Search', '_blend' ); ?>">
-</div>
 </form>
