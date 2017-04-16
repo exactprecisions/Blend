@@ -1,3 +1,10 @@
+@charset "UTF-8";
+/**
+ * Blend by Robert Parker
+ * 0.0.1
+ * 
+ * 
+ */
 /*!
  *  Font Awesome 4.7.0 by @davegandy - http://fontawesome.io - @fontawesome
  *  License - http://fontawesome.io/license (Font: SIL OFL 1.1, CSS: MIT License)
@@ -2847,7 +2854,7 @@ pre {
     margin-left: 0; }
 
 .column, .columns {
-  flex: 1 1 0px;
+  flex: 1 1 0;
   padding-right: 0.625rem;
   padding-left: 0.625rem;
   min-width: 0; }
@@ -2895,7 +2902,7 @@ pre {
   max-width: 8.33333%; }
 
 .small-offset-0 {
-  margin-left: 0%; }
+  margin-left: 0; }
 
 .small-2 {
   flex: 0 0 16.66667%;
@@ -3054,7 +3061,7 @@ pre {
     max-width: 8.33333%; }
 
   .medium-offset-0 {
-    margin-left: 0%; }
+    margin-left: 0; }
 
   .medium-2 {
     flex: 0 0 16.66667%;
@@ -3200,7 +3207,7 @@ pre {
       max-width: 12.5%; } }
 @media print, screen and (min-width: 40em) and (min-width: 40em) {
   .medium-expand {
-    flex: 1 1 0px; } }
+    flex: 1 1 0; } }
 @media print, screen and (min-width: 40em) {
   .medium-flex-dir-row {
     flex-direction: row; }
@@ -3226,7 +3233,7 @@ pre {
   flex: 0 0 100%; }
   @media print, screen and (min-width: 40em) {
     .row.medium-unstack > .column, .row.medium-unstack > .columns {
-      flex: 1 1 0px; } }
+      flex: 1 1 0; } }
 @media print, screen and (min-width: 40em) {
   .medium-collapse > .column, .medium-collapse > .columns {
     padding-right: 0;
@@ -3241,7 +3248,7 @@ pre {
     max-width: 8.33333%; }
 
   .large-offset-0 {
-    margin-left: 0%; }
+    margin-left: 0; }
 
   .large-2 {
     flex: 0 0 16.66667%;
@@ -3387,7 +3394,7 @@ pre {
       max-width: 12.5%; } }
 @media print, screen and (min-width: 64em) and (min-width: 64em) {
   .large-expand {
-    flex: 1 1 0px; } }
+    flex: 1 1 0; } }
 @media print, screen and (min-width: 64em) {
   .large-flex-dir-row {
     flex-direction: row; }
@@ -3413,7 +3420,7 @@ pre {
   flex: 0 0 100%; }
   @media print, screen and (min-width: 64em) {
     .row.large-unstack > .column, .row.large-unstack > .columns {
-      flex: 1 1 0px; } }
+      flex: 1 1 0; } }
 @media print, screen and (min-width: 64em) {
   .large-collapse > .column, .large-collapse > .columns {
     padding-right: 0;
@@ -5386,7 +5393,7 @@ select {
 .progress-meter {
   position: relative;
   display: block;
-  width: 0%;
+  width: 0;
   height: 100%;
   background-color: #1779ba; }
 
