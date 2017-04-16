@@ -16,6 +16,10 @@ require get_template_directory() . '/inc/setup.php';
  */
 require get_template_directory() . '/inc/widgets.php';
 /**
+ * Register menus
+ */
+require get_template_directory() . '/inc/menus.php';
+/**
  * Load functions to secure your WP install.
  */
 require get_template_directory() . '/inc/security.php';
