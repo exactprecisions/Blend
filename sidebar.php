@@ -12,6 +12,6 @@ if ( ! is_active_sidebar( 'sidebar-1' ) ) {
 }
 ?>
 
-<aside id="secondary" class="medium-5 large-4 columns sticky-container widget-area" role="complementary">
+<aside id="secondary" class="hide-for-small-only medium-5 large-4 columns sticky-container widget-area" role="complementary">
 	<?php dynamic_sidebar( 'sidebar-1' ); ?>
 </aside><!-- #secondary -->
