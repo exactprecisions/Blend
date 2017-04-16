@@ -22,7 +22,7 @@
 <body <?php body_class(); ?>>
 <div id="page" class="site">
 
-    <a class="show-for-small-only skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', '_s' ); ?></a>
+    <a class="show-for-small-only skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', '_blend' ); ?></a>
 
     <header id="masthead" class="site-header" role="banner">
         <div class="site-branding">

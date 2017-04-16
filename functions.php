@@ -23,7 +23,6 @@ require get_template_directory() . '/inc/security.php';
  * Enqueue scripts & styles
  */
 require get_template_directory() . '/inc/enqueue.php';
-
 /**
  * Custom template tags for this theme.
  */
