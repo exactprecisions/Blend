@@ -51,8 +51,5 @@
             <?php wp_nav_menu( array( 'theme_location' => 'menu-1', 'menu_id' => 'primary-menu', 'menu_class' => 'menu' ) ); ?>
         </nav><!-- #site-navigation -->
     </div><!-- #masthead -->
-    <?php if(get_header_image()) : ?>
-        <img class="custom-header" src="<?php header_image(); ?>" height="<?php echo get_custom_header()->height; ?>" width="<?php echo get_custom_header()->width; ?>" alt="" />
-    <?php endif; ?>
 
     <div id="content" class="row site-content">
