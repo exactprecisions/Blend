@@ -16,6 +16,10 @@ require get_template_directory() . '/inc/setup.php';
  */
 require get_template_directory() . '/inc/widgets.php';
 /**
+ * foundation navwalker
+ */
+require get_template_directory() . '/inc/foundation-navwalker.php';
+/**
  * Register menus
  */
 require get_template_directory() . '/inc/menus.php';

@@ -52,7 +52,7 @@
     </div>
     <div id="navigation" class="top-bar">
         <nav id="site-navigation" class="top-bar-left main-navigation" role="navigation">
-            <?php wp_nav_menu( array( 'theme_location' => 'menu-1', 'menu_id' => 'primary-menu', 'menu_class' => 'menu' ) ); ?>
+            <?php wp_nav_menu( array( 'theme_location' => 'menu-1', 'menu_id' => 'primary-menu', 'menu_class' => 'dropdown menu', 'items_wrap' => '<ul id="%1$s" class="%2$s" data-dropdown-menu>%3$s</ul>', 'fallback_cb' => 'f6_menu_fallback', 'walker' => new F6_MENU_WALKER(), ) ); ?>
         </nav><!-- #site-navigation -->
     </div><!-- #masthead -->
 
