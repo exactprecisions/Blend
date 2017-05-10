@@ -22,6 +22,8 @@
 <body <?php body_class(); ?>>
 <div id="page" class="site">
 
+    <div id="header" class="expanded row">
+
     <a class="show-for-small-only skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', '_blend' ); ?></a>
 
     <header id="masthead" class="site-header" role="banner">
@@ -55,5 +57,7 @@
             <?php wp_nav_menu( array( 'theme_location' => 'menu-1', 'menu_id' => 'primary-menu', 'menu_class' => 'dropdown menu', 'items_wrap' => '<ul id="%1$s" class="%2$s" data-dropdown-menu>%3$s</ul>', 'fallback_cb' => 'f6_menu_fallback', 'walker' => new F6_MENU_WALKER(), ) ); ?>
         </nav><!-- #site-navigation -->
     </div><!-- #masthead -->
+
+    </div>
 
     <div id="content" class="row site-content">
