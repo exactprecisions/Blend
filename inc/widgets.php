@@ -20,5 +20,14 @@ function _blend_widgets_init() {
         'before_title'  => '<h4 class="widget-title">',
         'after_title'   => '</h4>',
     ) );
+	register_sidebar( array(
+		'name'          => esc_html__( 'Blog', '_blend' ),
+		'id'            => 'sidebar-2',
+		'description'   => esc_html__( 'Add widgets here.', '_blend' ),
+		'before_widget' => '<section id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</section>',
+		'before_title'  => '<h4 class="widget-title">',
+		'after_title'   => '</h4>',
+	) );
 }
 add_action( 'widgets_init', '_blend_widgets_init' );
