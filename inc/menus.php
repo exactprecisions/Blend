@@ -12,6 +12,7 @@
 function _blend_menus() {
     register_nav_menus( array(
         'menu-1' => esc_html__( 'Primary', '_blend' ),
+        'menu-2' => esc_html__( 'Secondary', '_blend' ),
     ) );
 }
 add_action('after_setup_theme', '_blend_menus');

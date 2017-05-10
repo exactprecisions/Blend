@@ -4,3 +4,29 @@
  * 0.0.1
  * custom.css
  */
+
+/**
+* header
+ */
+.site-branding .site-title {
+    font-size: 3rem;
+}
+/**
+* main
+ */
+footer.entry-footer .comments-link, footer.entry-footer .edit-link {
+    display:block;
+}
+/**
+* secondary
+ */
+#searchform>div>label {
+    font-size: 1.5625rem;
+}
+/**
+* footer
+ */
+footer.site-footer .menu .active>a {
+    background-color:transparent;
+    color:#1779ba;
+}
