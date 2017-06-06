@@ -1,7 +1,7 @@
 Blend
 ===
 
-Starter theme combining _s and Foundation 6
+WordPress starter theme combining _s and Foundation 6
 
 Assets
 * _s by Automattic
