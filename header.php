@@ -60,4 +60,4 @@
 
     </div>
 
-    <div id="content" class="row site-content">
+    <div id="content" class="grid-x grid-container site-content">

@@ -9,7 +9,7 @@
 
 get_header(); ?>
 
-	<div id="primary" class="row column content-area">
+	<div id="primary" class="grid-x content-area">
 		<main id="main" class="site-main" role="main">
 
 			<section class="error-404 not-found">

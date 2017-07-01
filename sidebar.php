@@ -12,7 +12,7 @@ if ( ! is_active_sidebar( 'sidebar-1' ) ) {
 }
 ?>
 
-<aside id="secondary" class="widget-area hide-for-small-only medium-5 large-4 columns" role="complementary" data-sticky-container>
+<aside id="secondary" class="widget-area hide-for-small-only medium-5 large-4 cell" role="complementary" data-sticky-container>
 	<div class="sticky" data-sticky data-anchor="content">
     <?php dynamic_sidebar( 'sidebar-1' ); ?>
     </div>
