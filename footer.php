@@ -13,7 +13,7 @@
         </div>
 	</div><!-- #content -->
 
-	<footer id="colophon" class="row site-footer" role="contentinfo">
+	<footer id="colophon" class="cell site-footer" role="contentinfo">
         <div class="grid-x grid-container">
         <div id="footer-navigation" class="small-12 cell">
             <nav id="site-footer-navigation" class="main-navigation" role="navigation">

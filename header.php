@@ -20,9 +20,9 @@
 </head>
 
 <body <?php body_class(); ?>>
-<div id="page" class="site">
+<div id="page" class="grid-y site">
 
-    <div id="header" class="expanded row">
+    <div id="header" class="cell">
 
     <a class="show-for-small-only skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', '_blend' ); ?></a>
 
@@ -60,5 +60,5 @@
 
     </div>
 
-    <div id="content" class="row site-content">
+    <div id="content" class="cell site-content">
         <div class="grid-x grid-container">
