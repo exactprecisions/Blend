@@ -10,10 +10,11 @@
  */
 
 ?>
-
+        </div>
 	</div><!-- #content -->
 
-	<footer id="colophon" class="grid-x grid-container site-footer" role="contentinfo">
+	<footer id="colophon" class="row site-footer" role="contentinfo">
+        <div class="grid-x grid-container">
         <div id="footer-navigation" class="small-12 cell">
             <nav id="site-footer-navigation" class="main-navigation" role="navigation">
 				<?php wp_nav_menu( array( 'theme_location' => 'menu-2', 'menu_id' => 'secondary-menu', 'menu_class' => 'menu' ) ); ?>
@@ -24,6 +25,7 @@
 			<span class="sep"> | </span>
 			<?php printf( esc_html__( 'Theme: %1$s by %2$s.', '_blend' ), 'Blend', '<a href="https://robertparker.me" rel="developer">Robert Parker</a>' ); ?>
 		</div><!-- .site-info -->
+        </div>
 	</footer><!-- #colophon -->
 </div><!-- #page -->
 
