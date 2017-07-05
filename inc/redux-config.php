@@ -283,16 +283,16 @@
 		'id'         => 'footer-general-subsection',
 		'subsection' => true,
 		'fields'     => array(
-			array(
-				'id'       => 'footer-biotitle',
-				'type'     => 'text',
-				'title'    => __( 'Bio title', 'redux-framework-demo' ),
-			),
-			array(
-				'id'       => 'footer-biotext',
-				'type'     => 'editor',
-				'title'    => __( 'Bio text', 'redux-framework-demo' ),
-			),
+			//array(
+			//	'id'       => 'footer-biotitle',
+			//	'type'     => 'text',
+			//	'title'    => __( 'Bio title', 'redux-framework-demo' ),
+			//),
+			//array(
+			//	'id'       => 'footer-biotext',
+			//	'type'     => 'editor',
+			//	'title'    => __( 'Bio text', 'redux-framework-demo' ),
+			//),
 			array(
 				'id'       => 'footer-copyright',
 				'type'     => 'text',
