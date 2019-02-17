@@ -263,20 +263,26 @@
 		'icon'  => 'el el-home'
 	) );
 
-	//Redux::setSection( $opt_name, array(
-	//	'title'      => __( 'Header', 'redux-framework-demo' ),
-	//	'id'         => 'header-general-subsection',
-	//	'subsection' => true,
-	//	'fields'     => array(
-	//		array(
-	//			'id'       => 'header-logo',
-	//			'type'     => 'media',
-	//			'title'    => __( 'Logo', 'redux-framework-demo' ),
-	//			'url' => true,
-	//			'preview' => true,
-	//		),
-	//	)
-	//) );
+	Redux::setSection( $opt_name, array(
+		'title'      => __( 'Menu', 'redux-framework-demo' ),
+		'id'         => 'menu-general-subsection',
+		'subsection' => true,
+		'fields'     => array(
+            array(
+                'id'       => 'menu-mobile',
+                'type'     => 'radio',
+                'title'    => __( 'Mobile menu', 'redux-framework-demo' ),
+                //'subtitle' => __( 'No validation can be done on this field type', 'redux-framework-demo' ),
+                //'desc'     => __( 'This is the description field, again good for additional info.', 'redux-framework-demo' ),
+                //Must provide key => value pairs for radio options
+                'options'  => array(
+                    'topbar' => 'Top Bar',
+                    'offcanvas' => 'Off Canvas',
+                ),
+                'default'  => 'topbar'
+            ),
+		)
+	) );
 
 	Redux::setSection( $opt_name, array(
 		'title'      => __( 'Footer', 'redux-framework-demo' ),

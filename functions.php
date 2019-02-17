@@ -15,6 +15,7 @@ if ( !class_exists( 'ReduxFramework' ) && file_exists( dirname( __FILE__ ) . '/i
 if ( !isset( $redux_demo ) && file_exists( dirname( __FILE__ ) . '/inc/redux-config.php' ) ) {
 	require_once( dirname( __FILE__ ) . '/inc/redux-config.php' );
 }
+
 /**
  * Theme setup
  */
@@ -31,6 +32,10 @@ require get_template_directory() . '/inc/foundation-navwalker.php';
  * Register menus
  */
 require get_template_directory() . '/inc/menus.php';
+/**
+ * Foundation
+ */
+require get_template_directory() . '/inc/foundation.php';
 /**
  * Load functions to secure your WP install.
  */

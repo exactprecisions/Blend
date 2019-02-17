@@ -8,7 +8,7 @@
  *
  * @package _blend
  */
-
+global $blend_opt;
 ?><!DOCTYPE html>
 <html <?php language_attributes(); ?>>
 <head>
@@ -20,6 +20,11 @@
 </head>
 
 <body <?php body_class(); ?>>
+
+<?php if($blend_opt['menu-mobile'] === 'offcanvas') : ?>
+	<?php get_template_part( 'template-parts/mobile-off-canvas' ); ?>
+<?php endif; ?>	
+	
 <div id="page" class="grid-y site">
 
     <div id="header" class="cell">
@@ -47,16 +52,21 @@
         </div><!-- .site-branding -->
 
     </header><!-- #masthead -->
+		
+	<div class="site-title-bar title-bar" <?php foundationpress_title_bar_responsive_toggle(); ?>>
+		<div class="title-bar-left">
+			<button aria-label="<?php _e( 'Main Menu', '_blend' ); ?>" class="menu-icon" type="button" data-toggle="<?php foundationpress_mobile_menu_id(); ?>"></button>
+		</div>
+	</div>
 
-    <div class="title-bar" data-responsive-toggle="navigation" data-hide-for="medium">
-        <button class="menu-icon" type="button" data-toggle="navigation"></button>
-        <div class="title-bar-title">Menu</div>
-    </div>
     <div id="navigation" class="top-bar">
-        <nav id="site-navigation" class="top-bar-left main-navigation" role="navigation">
-            <?php wp_nav_menu( array( 'theme_location' => 'menu-1', 'menu_id' => 'primary-menu', 'menu_class' => 'dropdown menu', 'items_wrap' => '<ul id="%1$s" class="%2$s" data-dropdown-menu>%3$s</ul>', 'fallback_cb' => 'f6_menu_fallback', 'walker' => new F6_MENU_WALKER(), ) ); ?>
-        </nav><!-- #site-navigation -->
-    </div><!-- #masthead -->
+        <div id="site-navigation" class="top-bar-left main-navigation" role="navigation">
+            <?php foundationpress_top_bar_l(); ?>
+			<?php if($blend_opt['menu-mobile'] === 'topbar') {
+				get_template_part( 'template-parts/mobile-top-bar' );
+			} ?>
+        </div><!-- #site-navigation -->
+    </div><!-- #navigation -->
 
     </div>
 

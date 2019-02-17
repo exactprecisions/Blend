@@ -34,3 +34,15 @@ footer.site-footer .menu .active>a {
     background-color:transparent;
     color:#1779ba;
 }
+
+
+@media print,screen and (min-width:40em){
+    .mobile-menu,.site-title-bar{
+        display:none!important
+    }
+}
+@media screen and (max-width:39.99875em){
+    .desktop-menu{
+        display:none!important
+    }
+}

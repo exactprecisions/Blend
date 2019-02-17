@@ -8,7 +8,7 @@
  *
  * @package _blend
  */
-
+global $blend_opt;
 ?>
         </div>
 	</div><!-- #content -->
@@ -29,7 +29,13 @@
 	</footer><!-- #colophon -->
 </div><!-- #page -->
 
+<?php if($blend_opt['menu-mobile'] === 'offcanvas') : ?>
+	</div><!-- Close off-canvas content -->
+<?php endif; ?>
+
 <?php wp_footer(); ?>
+
+
 
 </body>
 </html>
