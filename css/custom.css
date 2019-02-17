@@ -11,6 +11,10 @@
 .site-branding .site-title {
     font-size: 3rem;
 }
+.title-bar {
+	display:none;
+}
+
 /**
 * main
  */
