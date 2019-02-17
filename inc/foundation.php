@@ -5,8 +5,8 @@ Redux::init( 'blend_opt' );
  * Get mobile menu ID
  */
 
-if ( ! function_exists( 'foundationpress_pagination' ) ) :
-	function foundationpress_pagination() {
+if ( ! function_exists( 'blend_pagination' ) ) :
+	function blend_pagination() {
 		global $wp_query;
 
 		$big = 999999999; // This needs to be an unlikely integer
@@ -41,8 +41,8 @@ if ( ! function_exists( 'foundationpress_pagination' ) ) :
 endif;
 
 // Custom Comments Pagination.
-if ( ! function_exists( 'foundationpress_get_the_comments_pagination' ) ) :
-	function foundationpress_get_the_comments_pagination( $args = array() ) {
+if ( ! function_exists( 'blend_get_the_comments_pagination' ) ) :
+	function blend_get_the_comments_pagination( $args = array() ) {
 		$navigation = '';
 		$args = wp_parse_args( $args, array(
 			'prev_text'				=> __( '&laquo;', '_blend' ),
@@ -94,14 +94,14 @@ if ( ! function_exists( 'foundationpress_get_the_comments_pagination' ) ) :
 endif;
 
 // Custom Comments Pagination.
-if ( ! function_exists( 'foundationpress_the_comments_pagination' ) ) :
-	function foundationpress_the_comments_pagination( $args = array() ) {
-		echo foundationpress_get_the_comments_pagination( $args );
+if ( ! function_exists( 'blend_the_comments_pagination' ) ) :
+	function blend_the_comments_pagination( $args = array() ) {
+		echo blend_get_the_comments_pagination( $args );
 	}
 endif;
 
-if ( ! function_exists( 'foundationpress_mobile_menu_id' ) ) :
-	function foundationpress_mobile_menu_id() {
+if ( ! function_exists( 'blend_mobile_menu_id' ) ) :
+	function blend_mobile_menu_id() {
 		global $blend_opt;
 		if($blend_opt['menu-mobile'] === 'offcanvas') {
 			echo 'off-canvas-menu';
@@ -114,8 +114,8 @@ endif;
  * Get title bar responsive toggle attribute
  */
 
-if ( ! function_exists( 'foundationpress_title_bar_responsive_toggle' ) ) :
-	function foundationpress_title_bar_responsive_toggle() {
+if ( ! function_exists( 'blend_title_bar_responsive_toggle' ) ) :
+	function blend_title_bar_responsive_toggle() {
 		global $blend_opt;
 		if($blend_opt['menu-mobile'] || $blend_opt['menu-mobile'] === 'topbar') {
 			echo 'data-responsive-toggle="mobile-menu"';
@@ -125,22 +125,22 @@ endif;
 
 
 // Add Foundation 'is-active' class for the current menu item.
-if ( ! function_exists( 'foundationpress_active_nav_class' ) ) :
-	function foundationpress_active_nav_class( $classes, $item ) {
+if ( ! function_exists( 'blend_active_nav_class' ) ) :
+	function blend_active_nav_class( $classes, $item ) {
 		if ( $item->current == 1 || $item->current_item_ancestor == true ) {
 			$classes[] = 'is-active';
 		}
 		return $classes;
 	}
-	add_filter( 'nav_menu_css_class', 'foundationpress_active_nav_class', 10, 2 );
+	add_filter( 'nav_menu_css_class', 'blend_active_nav_class', 10, 2 );
 endif;
 
 /**
  * Use the is-active class of ZURB Foundation on wp_list_pages output.
  * From required+ Foundation http://themes.required.ch.
  */
-if ( ! function_exists( 'foundationpress_active_list_pages_class' ) ) :
-	function foundationpress_active_list_pages_class( $input ) {
+if ( ! function_exists( 'blend_active_list_pages_class' ) ) :
+	function blend_active_list_pages_class( $input ) {
 
 		$pattern = '/current_page_item/';
 		$replace = 'current_page_item is-active';
@@ -149,14 +149,14 @@ if ( ! function_exists( 'foundationpress_active_list_pages_class' ) ) :
 
 		return $output;
 	}
-	add_filter( 'wp_list_pages', 'foundationpress_active_list_pages_class', 10, 2 );
+	add_filter( 'wp_list_pages', 'blend_active_list_pages_class', 10, 2 );
 endif;
 
 /**
  * Custom markup for Wordpress gallery
  */
-if ( ! function_exists( 'foundationpress_gallery' ) ) :
-	function foundationpress_gallery($attr) {
+if ( ! function_exists( 'blend_gallery' ) ) :
+	function blend_gallery($attr) {
 
 		$post = get_post();
 		static $instance = 0;
@@ -286,5 +286,5 @@ if ( ! function_exists( 'foundationpress_gallery' ) ) :
 
 		return $output;
 	}
-	add_shortcode('gallery', 'foundationpress_gallery');
+	add_shortcode('gallery', 'blend_gallery');
 endif;
