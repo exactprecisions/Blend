@@ -1,16 +1,12 @@
 <?php
 Redux::init( 'blend_opt' );
-
 /**
  * Get mobile menu ID
  */
-
 if ( ! function_exists( 'blend_pagination' ) ) :
 	function blend_pagination() {
 		global $wp_query;
-
 		$big = 999999999; // This needs to be an unlikely integer
-
 		// For more options and info view the docs for paginate_links()
 		// http://codex.wordpress.org/Function_Reference/paginate_links
 		$paginate_links = paginate_links(
@@ -25,21 +21,18 @@ if ( ! function_exists( 'blend_pagination' ) ) :
 				'type'      => 'list',
 			)
 		);
-
 		$paginate_links = str_replace( "<ul class='page-numbers'>", "<ul class='pagination text-center' role='navigation' aria-label='Pagination'>", $paginate_links );
 		$paginate_links = str_replace( '<li><span class="page-numbers dots">', "<li><a href='#'>", $paginate_links );
 		$paginate_links = str_replace( '</span>', '</a>', $paginate_links );
 		$paginate_links = str_replace( "<li><span class='page-numbers current'>", "<li class='current'>", $paginate_links );
 		$paginate_links = str_replace( "<li><a href='#'>&hellip;</a></li>", "<li><span class='dots'>&hellip;</span></li>", $paginate_links );
 		$paginate_links = preg_replace( '/\s*page-numbers/', '', $paginate_links );
-
 		// Display the pagination if more than one page is found.
 		if ( $paginate_links ) {
 			echo $paginate_links;
 		}
 	}
 endif;
-
 // Custom Comments Pagination.
 if ( ! function_exists( 'blend_get_the_comments_pagination' ) ) :
 	function blend_get_the_comments_pagination( $args = array() ) {
@@ -92,14 +85,12 @@ if ( ! function_exists( 'blend_get_the_comments_pagination' ) ) :
 		return $navigation;
 	}
 endif;
-
 // Custom Comments Pagination.
 if ( ! function_exists( 'blend_the_comments_pagination' ) ) :
 	function blend_the_comments_pagination( $args = array() ) {
 		echo blend_get_the_comments_pagination( $args );
 	}
 endif;
-
 if ( ! function_exists( 'blend_mobile_menu_id' ) ) :
 	function blend_mobile_menu_id() {
 		global $blend_opt;
@@ -113,7 +104,6 @@ endif;
 /**
  * Get title bar responsive toggle attribute
  */
-
 if ( ! function_exists( 'blend_title_bar_responsive_toggle' ) ) :
 	function blend_title_bar_responsive_toggle() {
 		global $blend_opt;
@@ -122,8 +112,6 @@ if ( ! function_exists( 'blend_title_bar_responsive_toggle' ) ) :
 		}		
 	}
 endif;
-
-
 // Add Foundation 'is-active' class for the current menu item.
 if ( ! function_exists( 'blend_active_nav_class' ) ) :
 	function blend_active_nav_class( $classes, $item ) {
@@ -134,53 +122,43 @@ if ( ! function_exists( 'blend_active_nav_class' ) ) :
 	}
 	add_filter( 'nav_menu_css_class', 'blend_active_nav_class', 10, 2 );
 endif;
-
 /**
  * Use the is-active class of ZURB Foundation on wp_list_pages output.
  * From required+ Foundation http://themes.required.ch.
  */
 if ( ! function_exists( 'blend_active_list_pages_class' ) ) :
 	function blend_active_list_pages_class( $input ) {
-
 		$pattern = '/current_page_item/';
 		$replace = 'current_page_item is-active';
-
 		$output = preg_replace( $pattern, $replace, $input );
-
 		return $output;
 	}
 	add_filter( 'wp_list_pages', 'blend_active_list_pages_class', 10, 2 );
 endif;
-
 /**
  * Custom markup for Wordpress gallery
  */
 if ( ! function_exists( 'blend_gallery' ) ) :
 	function blend_gallery($attr) {
-
 		$post = get_post();
 		static $instance = 0;
 		$instance++;
-
 		if ( ! empty( $attr['ids'] ) ) {
 			// 'ids' is explicitly ordered, unless you specify otherwise.
 			if ( empty( $attr['orderby'] ) )
 				$attr['orderby'] = 'post__in';
 			$attr['include'] = $attr['ids'];
 		}
-
 		// Allow plugins/themes to override the default gallery template.
 		$output = apply_filters('post_gallery', '', $attr, $instance);
 		if ( $output != '' )
 			return $output;
-
 		// Let's make sure it looks like a valid orderby statement
 		if ( isset( $attr['orderby'] ) ) {
 			$attr['orderby'] = sanitize_sql_orderby( $attr['orderby'] );
 			if ( !$attr['orderby'] )
 				unset( $attr['orderby'] );
 		}
-
 		$atts = shortcode_atts(array(
 			'order'         => 'ASC',
 			'orderby'       => 'menu_order ID',
@@ -195,12 +173,9 @@ if ( ! function_exists( 'blend_gallery' ) ) :
 			'include'       => '',
 			'exclude'       => ''
 		), $attr, 'gallery');
-
 		$id = intval($atts['id']);
-
 		if ( !empty($atts['include']) ) {
 			$_attachments = get_posts( array('include' => $atts['include'], 'post_status' => 'inherit', 'post_type' => 'attachment', 'post_mime_type' => 'image', 'order' => $atts['order'], 'orderby' => $atts['orderby']) );
-
 			$attachments = array();
 			foreach ( $_attachments as $key => $val ) {
 				$attachments[$val->ID] = $_attachments[$key];
@@ -210,54 +185,43 @@ if ( ! function_exists( 'blend_gallery' ) ) :
 		} else {
 			$attachments = get_children( array('post_parent' => $id, 'post_status' => 'inherit', 'post_type' => 'attachment', 'post_mime_type' => 'image', 'order' => $atts['order'], 'orderby' => $atts['orderby']) );
 		}
-
 		if ( empty($attachments) )
 			return '';
-
 		if ( is_feed() ) {
 			$output = "\n";
 			foreach ( $attachments as $att_id => $attachment )
 				$output .= wp_get_attachment_link($att_id, $atts['size'], true) . "\n";
 			return $output;
 		}
-
 		$item_tag = tag_escape($atts['itemtag']);
 		$caption_tag = tag_escape($atts['captiontag']);
 		$icon_tag = tag_escape($atts['icontag']);
 		$valid_tags = wp_kses_allowed_html( 'post' );
-
 		if ( ! isset( $valid_tags[ $item_tag ] ) )
 			$item_tag = 'figure';
 		if ( ! isset( $valid_tags[ $caption_tag ] ) )
 			$caption_tag = 'figcaption';
 		if ( ! isset( $valid_tags[ $icon_tag ] ) )
 			$icon_tag = 'div';
-
 		$columns = intval($atts['columns']);
 		$columns_small = intval($atts['columns-small']);
 		$columns_medium = intval($atts['columns-medium']);
 		$selector = "gallery-{$instance}";
 		$size_class = sanitize_html_class( $atts['size'] );
-
 		// Edit this line to modify the default number of grid columns for the small and medium sizes. The large size is passed in the WordPress gallery settings.
 		$output = "<div id='$selector' class='fp-gallery galleryid-{$id} gallery-size-{$size_class} grid-x grid-margin-x small-up-{$columns_small} medium-up-{$columns_medium} large-up-{$columns}'>";
-
 		foreach ( $attachments as $id => $attachment ) {
-
 			// Check if destination is file, nothing or attachment page.
 			if ( isset($attr['link']) && $attr['link'] == 'file' ){
 				$link = wp_get_attachment_link($id, $size_class, false, false, false,array('class' => '', 'id' => "imageid-$id"));
-
 				// Edit this line to implement your html params in <a> tag with use a custom lightbox plugin.
 				$link = str_replace('<a href', '<a class="thumbnail fp-gallery-lightbox" data-gall="fp-gallery-'. $post->ID .'" data-title="'. wptexturize($attachment->post_excerpt) .'" title="'. wptexturize($attachment->post_excerpt) .'" href', $link);
-
 			} elseif ( isset($attr['link']) && $attr['link'] == 'none' ){
 				$link = wp_get_attachment_image($id,$size_class,false, array('class' => "thumbnail attachment-$size_class size-$size_class", 'id' => "imageid-$id"));
 			} else {
 				$link = wp_get_attachment_link($id, $size_class, true, false, false,array('class' => '', 'id' => "imageid-$id"));
 				$link = str_replace('<a href', '<a class="thumbnail" title="'. wptexturize($attachment->post_excerpt) .'" href', $link);
 			}
-
 			$image_meta  = wp_get_attachment_metadata( $id );
 			$orientation = '';
 			if ( isset( $image_meta['height'], $image_meta['width'] ) ) {
@@ -268,7 +232,6 @@ if ( ! function_exists( 'blend_gallery' ) ) :
 		        <{$icon_tag} class='fp-gallery-icon {$orientation}'>
 		            $link
 		        </{$icon_tag}>";
-
 			// Uncomment if you wish to display captions inline on gallery.
 			/*
 			if ( $caption_tag && trim($attachment->post_excerpt) ) {
@@ -278,12 +241,9 @@ if ( ! function_exists( 'blend_gallery' ) ) :
 		            </{$caption_tag}>";
 			}
 			*/
-
 			$output .= "</{$item_tag}>";
-
 		}
 		$output .= "</div>\n";
-
 		return $output;
 	}
 	add_shortcode('gallery', 'blend_gallery');

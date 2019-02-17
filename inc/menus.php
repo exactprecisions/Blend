@@ -24,14 +24,14 @@ add_action('after_setup_theme', '_blend_menus');
  * 3) On your menu item, type 'has-form' in the CSS-classes field. Type 'button' in the XFN field
  * 4) Save Menu. Your menu item will now appear as a button in your top-menu
 */
-if ( ! function_exists( 'foundationpress_add_menuclass' ) ) {
-	function foundationpress_add_menuclass( $ulclass ) {
+if ( ! function_exists( 'blend_add_menuclass' ) ) {
+	function blend_add_menuclass( $ulclass ) {
 		$find    = array( '/<a rel="button"/', '/<a title=".*?" rel="button"/' );
 		$replace = array( '<a rel="button" class="button"', '<a rel="button" class="button"' );
 
 		return preg_replace( $find, $replace, $ulclass, 1 );
 	}
-	add_filter( 'wp_nav_menu', 'foundationpress_add_menuclass' );
+	add_filter( 'wp_nav_menu', 'blend_add_menuclass' );
 }
 
 /**
@@ -39,8 +39,8 @@ if ( ! function_exists( 'foundationpress_add_menuclass' ) ) {
  *
  * @link http://codex.wordpress.org/Function_Reference/wp_nav_menu
  */
-if ( ! function_exists( 'foundationpress_top_bar_l' ) ) {
-	function foundationpress_top_bar_l() {
+if ( ! function_exists( 'blend_top_bar_l' ) ) {
+	function blend_top_bar_l() {
 		wp_nav_menu(
 			array(
 				'container'      => false,
@@ -49,7 +49,7 @@ if ( ! function_exists( 'foundationpress_top_bar_l' ) ) {
 				'theme_location' => 'menu-1',
 				'depth'          => 3,
 				'fallback_cb'    => false,
-				'walker'         => new Foundationpress_Top_Bar_Walker(),
+				'walker'         => new Blend_Top_Bar_Walker(),
 			)
 		);
 	}
@@ -57,8 +57,8 @@ if ( ! function_exists( 'foundationpress_top_bar_l' ) ) {
 /**
  * Mobile navigation - topbar (default) or offcanvas
  */
-if ( ! function_exists( 'foundationpress_mobile_nav' ) ) {
-	function foundationpress_mobile_nav() {
+if ( ! function_exists( 'blend_mobile_nav' ) ) {
+	function blend_mobile_nav() {
 		wp_nav_menu(
 			array(
 				'container'      => false,                         // Remove nav container
@@ -67,7 +67,7 @@ if ( ! function_exists( 'foundationpress_mobile_nav' ) ) {
 				'theme_location' => 'menu-2',
 				'items_wrap'     => '<ul id="%1$s" class="%2$s" data-accordion-menu data-submenu-toggle="true">%3$s</ul>',
 				'fallback_cb'    => false,
-				'walker'         => new Foundationpress_Mobile_Walker(),
+				'walker'         => new Blend_Mobile_Walker(),
 			)
 		);
 	}
